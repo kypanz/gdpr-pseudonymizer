@@ -1,0 +1,6 @@
+aes_key.bin
+proyecto.gz
+proyecto_anonimo.gz
+proyecto_anonimo.csv
+__pycache__/
+*.pyc
