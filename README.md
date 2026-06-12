@@ -1,32 +1,32 @@
 # gdpr-pseudonymizer
 
-GDPR-compliant pseudonymization script. Encrypts MongoDB document IDs with AES-256 and anonymizes text fields via local LLM.
+Script de seudonimización conforme al RGPD. Cifra identificadores en MongoDB con AES-256 y anonimiza campos de texto mediante LLM local.
 
-## Features
+## Características
 
-1. **Pseudonymization**: encrypts `_id`, `device_id`, `avatar_id`, `stream_id` with AES-256-CBC
-2. **Text anonymization**: removes PII (names, phones, addresses, emails → `[oculto]`) via local LLM (Qwen2.5-VL-3B)
-3. **Preserves**: `emotion`, `createdAt`, `updatedAt` (non-identifying fields)
+1. **Seudonimización**: cifra `_id`, `device_id`, `avatar_id`, `stream_id` con AES-256-CBC
+2. **Anonimización de texto**: elimina datos personales (nombres, teléfonos, direcciones, emails → `[oculto]`) vía LLM local (Qwen2.5-VL-3B)
+3. **Conserva**: `emotion`, `createdAt`, `updatedAt` (campos no identificativos)
 
-## Requirements
+## Requisitos
 
 ```bash
 pip install pymongo cryptography requests
 ```
 
-- MongoDB running on `localhost:27017`
-- LM Studio with `qwen2.5-vl-3b-instruct` at `http://192.168.1.113:1234`
+- MongoDB corriendo en `localhost:27017`
+- LM Studio con `qwen2.5-vl-3b-instruct` en `http://192.168.1.113:1234`
 
-## Usage
+## Ejecutar
 
 ```bash
 python3 anonymize.py
 ```
 
-## Output files
+## Archivos generados
 
-| File | Description |
-|------|-------------|
-| `proyecto_anonimo.gz` | Exported anonymized database |
-| `aes_key.bin` | AES-256 key (keep secure!) |
-| `INSTRUCCIONES.md` | Import instructions (ES) |
+| Archivo | Descripción |
+|---------|-------------|
+| `proyecto_anonimo.gz` | Base anonimizada exportable |
+| `aes_key.bin` | Clave AES-256 (¡guardar segura!) |
+| `INSTRUCCIONES.md` | Instrucciones de importación |
